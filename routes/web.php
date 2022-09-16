@@ -1,18 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Authentication\Login;
+use App\Http\Livewire\Authentication\Register;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Users\Index as UsersIndex;
+use App\Http\Livewire\Users\Create as UsersCreate;
+use App\Http\Livewire\Users\Edit as UsersEdit;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/login', Login::class)->name('login');
+Route::get('/register', Register::class)->name('register');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function () {
+    Route::get('/', Dashboard::class)->name('dashboard');
+
+    Route::prefix('users')->group(function () {
+        Route::get('/', UsersIndex::class)->name('users.index');
+        Route::get('/create', UsersCreate::class)->name('users.create');
+        Route::get('/edit/{id}', UsersEdit::class)->name('users.edit');
+    });
 });
