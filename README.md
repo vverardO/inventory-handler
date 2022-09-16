@@ -1,6 +1,6 @@
 ## Instalação
 
-O projeto **Inventory Handler** tem como requerimento [Laravel](https://laravel.com/docs/9.x) v9+ e [Livewire](https://laravel-livewire.com/) v2 para rodar normalmente.
+O projeto **Inventory Handler** tem como requerimento [Laravel](https://laravel.com/docs/9.x) v9+ e [Livewire](https://laravel-livewire.com/) v2.x para rodar normalmente.
 
 O **objetivo principal** é desenvolver um software de lançamento de produtos, movimentações e controle de estoque.
 
