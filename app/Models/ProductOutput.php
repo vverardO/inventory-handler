@@ -15,7 +15,7 @@ class ProductOutput extends Model
         'user_id',
         'quantity',
     ];
-    
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);

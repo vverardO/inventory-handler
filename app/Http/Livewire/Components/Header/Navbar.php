@@ -1,7 +1,7 @@
 <?php
- 
+
 namespace App\Http\Livewire\Components\Header;
- 
+
 use Livewire\Component;
 
 class Navbar extends Component
@@ -54,12 +54,12 @@ class Navbar extends Component
                 'icon' => 'fas fa-building',
                 'route' => route('places.index'),
                 'active' => request()->routeIs('places.*') ? 'active' : '',
-            ]
+            ],
         ];
 
         if ($accessRoleTitle == 'Administrador') {
             // ...
-        } else if($accessRoleTitle == 'Usuário') {
+        } elseif ($accessRoleTitle == 'Usuário') {
             // ...
         } else {
             unset($this->menus['dashboard']);

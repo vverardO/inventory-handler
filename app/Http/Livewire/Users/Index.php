@@ -32,7 +32,7 @@ class Index extends Component
 
         $this->emit('alert', [
             'type' => 'success',
-            'message' => 'Usuário aceito com sucesso!'
+            'message' => 'Usuário aceito com sucesso!',
         ]);
     }
 
@@ -44,7 +44,7 @@ class Index extends Component
 
         $this->emit('alert', [
             'type' => 'success',
-            'message' => 'Usuário desativado com sucesso!'
+            'message' => 'Usuário desativado com sucesso!',
         ]);
     }
 

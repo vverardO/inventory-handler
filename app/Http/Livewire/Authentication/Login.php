@@ -2,15 +2,14 @@
 
 namespace App\Http\Livewire\Authentication;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Login extends Component
 {
-    public string $email = "";
-    public string $password = "";
+    public string $email = '';
+
+    public string $password = '';
 
     protected $rules = [
         'email' => 'required|email|exists:users,email',
@@ -30,7 +29,7 @@ class Login extends Component
 
         return Auth::attempt($credentials)
             ? redirect()->intended('/')
-            : $this->addError('email', "Usuário ou senha inválido!");
+            : $this->addError('email', 'Usuário ou senha inválido!');
     }
 
     public function render()

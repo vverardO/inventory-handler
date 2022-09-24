@@ -11,9 +11,12 @@ use Livewire\Component;
 class Register extends Component
 {
     public User $user;
-    public string $name = "";
-    public string $email = "";
-    public string $password = "";
+
+    public string $name = '';
+
+    public string $email = '';
+
+    public string $password = '';
 
     protected $rules = [
         'name' => ['required', 'string', 'max:255'],
@@ -41,8 +44,8 @@ class Register extends Component
         $this->user->access_role_id = AccessRole::where('title', 'Sem Acesso')->first()->id;
         $this->user->save();
 
-        session()->flash("message", "Conta registrada com sucesso!");
-        session()->flash("type", "success");
+        session()->flash('message', 'Conta registrada com sucesso!');
+        session()->flash('type', 'success');
 
         Auth::login($this->user);
 

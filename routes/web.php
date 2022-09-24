@@ -1,17 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Authentication\Login;
 use App\Http\Livewire\Authentication\Register;
 use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\Users\Index as UsersIndex;
-use App\Http\Livewire\Users\Create as UsersCreate;
-use App\Http\Livewire\Users\Edit as UsersEdit;
+use App\Http\Livewire\Entries\Index as EntriesIndex;
 use App\Http\Livewire\Movimentations\Index as MovimentationsIndex;
+use App\Http\Livewire\Outputs\Index as OutputsIndex;
 use App\Http\Livewire\Places\Index as PlacesIndex;
 use App\Http\Livewire\Products\Index as ProductsIndex;
-use App\Http\Livewire\Entries\Index as EntriesIndex;
-use App\Http\Livewire\Outputs\Index as OutputsIndex;
+use App\Http\Livewire\Users\Create as UsersCreate;
+use App\Http\Livewire\Users\Edit as UsersEdit;
+use App\Http\Livewire\Users\Index as UsersIndex;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');

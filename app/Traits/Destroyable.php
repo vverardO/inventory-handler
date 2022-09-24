@@ -12,7 +12,7 @@ trait Destroyable
 
         $this->emit('alert', [
             'type' => 'success',
-            'message' => 'Excluído com sucesso!'
+            'message' => 'Excluído com sucesso!',
         ]);
     }
 }
