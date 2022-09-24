@@ -14,6 +14,7 @@ class ProductMovimentation extends Model
         'product_id',
         'place_from_id',
         'place_to_id',
+        'quantity',
     ];
 
     public function product(): BelongsTo
@@ -23,11 +24,11 @@ class ProductMovimentation extends Model
 
     public function from(): BelongsTo
     {
-        return $this->belongsTo(Place::class);
+        return $this->belongsTo(Place::class, 'place_from_id');
     }
 
     public function to(): BelongsTo
     {
-        return $this->belongsTo(Place::class);
+        return $this->belongsTo(Place::class, 'place_to_id');
     }
 }

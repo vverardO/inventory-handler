@@ -17,6 +17,16 @@ class Product extends Model
         'minimum_amount',
     ];
 
+    public function getValueFormattedAttribute(): string
+    {
+        return number_format(
+            $this->value,
+            2,
+            ',',
+            '.'
+        );
+    }
+
     public function entries(): HasMany
     {
         return $this->hasMany(ProductEntry::class);

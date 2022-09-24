@@ -20,6 +20,7 @@ class User extends Authenticatable
         'password',
         'access_role_id',
         'password',
+        'status',
     ];
 
     public function movimentations(): HasMany

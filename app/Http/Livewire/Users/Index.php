@@ -55,7 +55,7 @@ class Index extends Component
                 $builder->where(function (Builder $builder2) {
                     $builder2->where('name', 'like', '%'.$this->search.'%');
                     $builder2->orWhere('email', 'like', '%'.$this->search.'%');
-                    $builder2->orWhere('role', 'like', '%'.$this->search.'%');
+                    $builder2->orWhereRelation('accessRole', 'title', 'like', '%'.$this->search.'%');
                 });
             }
         })->orderBy('name')->get();

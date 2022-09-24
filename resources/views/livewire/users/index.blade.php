@@ -18,14 +18,14 @@
                 <div class="col-md-6">
                     <div class="form-inline float-md-end mb-3">
                         <a href="{{route('users.create')}}" class="btn btn-success waves-effect waves-light">
-                            <i class="mdi mdi-plus me-2"></i> Adicionar
+                            <i class="mdi mdi-plus me-2"></i> Adicionar Usuário
                         </a>
                     </div>
                 </div>
             </div>
             <div class="table-responsive mb-4">
                 <table class="table table-centered table-nowrap mb-0">
-                    <thead>
+                    <thead class="table-light">
                         <tr>
                             <th>Nome</th>
                             <th>Email</th>
@@ -40,18 +40,18 @@
                             <td>{{$user->email}}</td>
                             @if($user->id == auth()->user()->id)
                                 <td>
-                                    <a type="button" rel="tooltip" class="btn btn-secondary btn-sm btn-round btn-icon" disabled>
+                                    <a type="button" rel="tooltip" class="text-secondary" disabled>
                                         <i class="fas fa-user-slash"></i>
                                     </a>
                                 </td>
                             @else
                                 <td>
                                     @if($user->status == 0)
-                                        <a type="button" rel="tooltip" wire:click="grantAccess({{$user->id}})" class="btn btn-success btn-sm btn-round btn-icon" title="Autorizar">
+                                        <a type="button" rel="tooltip" wire:click="grantAccess({{$user->id}})" class="text-success" title="Autorizar">
                                             <i class="fas fa-user-check"></i>
                                         </a>
                                     @else
-                                        <a type="button" rel="tooltip" wire:click="revokeAccess({{$user->id}})" class="btn btn-danger btn-sm btn-round btn-icon" title="Revogar">
+                                        <a type="button" rel="tooltip" wire:click="revokeAccess({{$user->id}})" class="text-danger" title="Revogar">
                                             <i class="fas fa-user-slash"></i>
                                         </a>
                                     @endif
@@ -59,11 +59,15 @@
                             @endif
                             <td>
                                 <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="{{route('users.edit', ['id' => $user->id])}}" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+                                    <li class="list-inline-item" title="Editar">
+                                        <a href="{{route('users.edit', ['id' => $user->id])}}" class="px-2 text-primary">
+                                            <i class="bx bx-pencil font-size-18"></i>
+                                        </a>
                                     </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" wire:click="destroy('User', {{$user->id}})" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+                                    <li class="list-inline-item" title="Excluir">
+                                        <a href="#" wire:click="destroy('User', {{$user->id}})" class="px-2 text-danger">
+                                            <i class="bx bx-trash-alt font-size-18"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </td>

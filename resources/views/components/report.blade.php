@@ -42,7 +42,7 @@
 <hr />
 <h2 style='text-align: center;'>Tabela de Resultados - {{$report->initials}}</h2><hr />
 <table style='margin-bottom: 10px;'>
-	<thead>
+	<thead class="table-light">
 		<tr>
 			<th>Bloco</th>
 			<th>TAD</th>

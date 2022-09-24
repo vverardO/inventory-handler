@@ -10,7 +10,7 @@
             <form wire:submit.prevent="login">
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input wire:model="email" type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Insira seu email">
+                    <input wire:model="email" type="text" autofocus class="form-control @error('email') is-invalid @enderror" placeholder="Insira seu email">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
