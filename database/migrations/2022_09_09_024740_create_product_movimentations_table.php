@@ -14,6 +14,7 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained();
             $table->foreignId('place_from_id')->constrained('places');
             $table->foreignId('place_to_id')->constrained('places');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

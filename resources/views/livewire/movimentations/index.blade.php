@@ -9,7 +9,7 @@
                     <div class="mb-3">
                         <div class="search-box ms-2">
                             <div class="position-relative">
-                                <input type="text" class="form-control rounded bg-light border-0" wire:model.debounce.500ms="search" placeholder="Buscar pelo nome da unidade, produto ou quantidade">
+                                <input type="text" class="form-control rounded bg-light border-0" wire:model.debounce.500ms="search" placeholder="Buscar pelo nome da unidade, nome do produto, da movimentação quantidade ou nome do usuário">
                                 <i class="mdi mdi-magnify search-icon"></i>
                             </div>
                         </div>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-inline float-md-end mb-3">
-                        <a href="" class="btn btn-success waves-effect waves-light">
+                        <a href="{{route('movimentations.create')}}" class="btn btn-success waves-effect waves-light">
                             <i class="mdi mdi-plus me-2"></i> Realizar Movimentação
                         </a>
                     </div>
@@ -31,6 +31,8 @@
                             <th>Para</th>
                             <th>Produto</th>
                             <th>Quantidade</th>
+                            <th>Quando</th>
+                            <th>Quem</th>
                             <th style="width: 100px;">Ações</th>
                         </tr>
                     </thead>
@@ -41,11 +43,10 @@
                             <td>{{$movimentation->to->name}}</td>
                             <td>{{$movimentation->product->name}}</td>
                             <td>{{$movimentation->quantity}}</td>
+                            <td>{{$movimentation->created_at->format('d/m/Y H:i:s')}}</td>
+                            <td>{{$movimentation->user->name}}</td>
                             <td>
                                 <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
-                                    </li>
                                     <li class="list-inline-item">
                                         <a href="#" wire:click="destroy('Movimentation', {{$movimentation->id}})" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
                                     </li>

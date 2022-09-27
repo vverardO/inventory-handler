@@ -13,7 +13,6 @@ class Product extends Model
     protected $fillable = [
         'name',
         'value',
-        'real_time_quantity',
         'minimum_amount',
     ];
 
@@ -35,5 +34,10 @@ class Product extends Model
     public function outputs(): HasMany
     {
         return $this->hasMany(ProductOutput::class);
+    }
+
+    public function places()
+    {
+        return $this->belongsToMany(Place::class);
     }
 }

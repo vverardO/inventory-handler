@@ -32,6 +32,7 @@ class Index extends Component
                     $query->whereRelation('product', 'name', 'like', '%'.$this->search.'%');
                     $query->orWhereRelation('from', 'name', 'like', '%'.$this->search.'%');
                     $query->orWhereRelation('to', 'name', 'like', '%'.$this->search.'%');
+                    $query->orWhereRelation('user', 'name', 'like', '%'.$this->search.'%');
                     $query->orWhere('quantity', $this->search);
                 });
             }

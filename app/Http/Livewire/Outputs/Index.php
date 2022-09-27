@@ -26,12 +26,13 @@ class Index extends Component
 
     public function render()
     {
-        $outputs = ProductOutput::with(['product', 'user'])->where(function (Builder $builder) {
+        $outputs = ProductOutput::with(['product', 'user', 'place'])->where(function (Builder $builder) {
             if ($this->search) {
                 $builder->where(function (Builder $query) {
-                    $query->where('user.name', 'like', '%'.$this->search.'%');
-                    $query->where('user.email', 'like', '%'.$this->search.'%');
-                    $query->where('product.name', 'like', '%'.$this->search.'%');
+                    $query->whereRelation('user', 'name', 'like', '%'.$this->search.'%');
+                    $query->orWhereRelation('user', 'email', 'like', '%'.$this->search.'%');
+                    $query->orWhereRelation('product', 'name', 'like', '%'.$this->search.'%');
+                    $query->orWhereRelation('place', 'name', 'like', '%'.$this->search.'%');
                     $query->orWhere('quantity', $this->search);
                 });
             }

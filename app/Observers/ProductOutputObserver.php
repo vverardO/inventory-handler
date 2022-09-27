@@ -9,15 +9,17 @@ class ProductOutputObserver
 {
     public function created(ProductOutput $productOutput): void
     {
-        DB::table('products')
-            ->where('id', $productOutput->product_id)
-            ->decrement('real_time_quantity', $productOutput->quantity);
+        DB::table('place_product')
+            ->where('product_id', $productOutput->product_id)
+            ->where('place_id', $productOutput->place_id)
+            ->decrement('quantity', $productOutput->quantity);
     }
 
     public function deleted(ProductOutput $productOutput): void
     {
-        DB::table('products')
-            ->where('id', $productOutput->product_id)
-            ->increment('real_time_quantity', $productOutput->quantity);
+        DB::table('place_product')
+            ->where('product_id', $productOutput->product_id)
+            ->where('place_id', $productOutput->place_id)
+            ->increment('quantity', $productOutput->quantity);
     }
 }

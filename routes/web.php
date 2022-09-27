@@ -5,6 +5,7 @@ use App\Http\Livewire\Authentication\Register;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Entries\Index as EntriesIndex;
 use App\Http\Livewire\Movimentations\Index as MovimentationsIndex;
+use App\Http\Livewire\Movimentations\Create as MovimentationsCreate;
 use App\Http\Livewire\Outputs\Index as OutputsIndex;
 use App\Http\Livewire\Places\Index as PlacesIndex;
 use App\Http\Livewire\Products\Index as ProductsIndex;
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('movimentations')->group(function () {
         Route::get('/', MovimentationsIndex::class)->name('movimentations.index');
+        Route::get('/create', MovimentationsCreate::class)->name('movimentations.create');
     });
 
     Route::prefix('entries')->group(function () {

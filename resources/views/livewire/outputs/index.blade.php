@@ -9,7 +9,7 @@
                     <div class="mb-3">
                         <div class="search-box ms-2">
                             <div class="position-relative">
-                                <input type="text" class="form-control rounded bg-light border-0" wire:model.debounce.500ms="search" placeholder="Buscar pelo nome do usuário, email do usuário, nome do produto ou quantidade">
+                                <input type="text" class="form-control rounded bg-light border-0" wire:model.debounce.500ms="search" placeholder="Buscar pelo nome do usuário, email do usuário, nome do produto, nome da unidade ou quantidade">
                                 <i class="mdi mdi-magnify search-icon"></i>
                             </div>
                         </div>
@@ -29,6 +29,7 @@
                         <tr>
                             <th>Usuário</th>
                             <th>Produto</th>
+                            <th>Unidade</th>
                             <th>Quantidade</th>
                             <th style="width: 100px;">Ações</th>
                         </tr>
@@ -38,6 +39,7 @@
                         <tr>
                             <td>{{$output->user->name}}</td>
                             <td>{{$output->product->name}}</td>
+                            <td>{{$output->place->name}}</td>
                             <td>{{$output->quantity}}</td>
                             <td>
                                 <ul class="list-inline mb-0">

@@ -13,7 +13,6 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('value');
             $table->integer('minimum_amount');
-            $table->integer('real_time_quantity');
             $table->timestamps();
         });
     }

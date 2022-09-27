@@ -14,7 +14,12 @@ class ProductMovimentation extends Model
         'product_id',
         'place_from_id',
         'place_to_id',
+        'user_id',
         'quantity',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d',
     ];
 
     public function product(): BelongsTo
@@ -30,5 +35,10 @@ class ProductMovimentation extends Model
     public function to(): BelongsTo
     {
         return $this->belongsTo(Place::class, 'place_to_id');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

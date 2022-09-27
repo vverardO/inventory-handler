@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Place;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -14,6 +15,7 @@ class ProductEntryFactory extends Factory
             'quantity' => $this->faker->randomNumber(2),
             'user_id' => User::inRandomOrder()->first()->id,
             'product_id' => Product::inRandomOrder()->first()->id,
+            'place_id' => Place::inRandomOrder()->first()->id,
         ];
     }
 }

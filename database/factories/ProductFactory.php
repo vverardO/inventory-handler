@@ -12,7 +12,6 @@ class ProductFactory extends Factory
             'name' => $this->faker->name(),
             'value' => $this->faker->randomFloat(2, 0, 250),
             'minimum_amount' => $this->faker->randomNumber(2),
-            'real_time_quantity' => 0,
         ];
     }
 }
