@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('place_product', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('place_id')->constrained('places');
-            $table->foreignId('product_id')->constrained('products');
+            $table->foreignId('place_id')->constrained('places')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->integer('quantity')->default(0);
         });
     }

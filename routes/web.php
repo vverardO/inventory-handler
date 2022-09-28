@@ -8,6 +8,8 @@ use App\Http\Livewire\Movimentations\Index as MovimentationsIndex;
 use App\Http\Livewire\Movimentations\Create as MovimentationsCreate;
 use App\Http\Livewire\Outputs\Index as OutputsIndex;
 use App\Http\Livewire\Places\Index as PlacesIndex;
+use App\Http\Livewire\Places\Create as PlacesCreate;
+use App\Http\Livewire\Places\Edit as PlacesEdit;
 use App\Http\Livewire\Products\Index as ProductsIndex;
 use App\Http\Livewire\Users\Create as UsersCreate;
 use App\Http\Livewire\Users\Edit as UsersEdit;
@@ -45,5 +47,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('places')->group(function () {
         Route::get('/', PlacesIndex::class)->name('places.index');
+        Route::get('/create', PlacesCreate::class)->name('places.create');
+        Route::get('/edit/{id}', PlacesEdit::class)->name('places.edit');
     });
 });
