@@ -26,7 +26,9 @@ class EventServiceProvider extends ServiceProvider
         Place::class => [PlaceObserver::class],
     ];
 
-    public function boot() {}
+    public function boot()
+    {
+    }
 
     public function shouldDiscoverEvents()
     {

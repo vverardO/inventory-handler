@@ -17,10 +17,15 @@ class Create extends Component
     ];
 
     public ProductMovimentation $movimentation;
+
     public $placesFrom;
+
     public $placesTo;
+
     public $products;
+
     public string $placeFromProductQuantity = '';
+
     public string $placeToProductQuantity = '';
 
     protected $rules = [
@@ -50,8 +55,9 @@ class Create extends Component
     {
         $this->placesTo = Place::whereNot('id', $this->movimentation->place_from_id)->select(['name', 'id'])->get();
 
-        if (empty($this->movimentation->product_id))
+        if (empty($this->movimentation->product_id)) {
             return;
+        }
 
         $placeProduct = DB::table('place_product')
             ->select(['quantity'])
@@ -64,15 +70,16 @@ class Create extends Component
 
     public function placeToChanged()
     {
-        if (empty($this->movimentation->product_id))
+        if (empty($this->movimentation->product_id)) {
             return;
+        }
 
         $placeProduct = DB::table('place_product')
             ->select(['quantity'])
             ->where('place_id', $this->movimentation->place_to_id)
             ->where('product_id', $this->movimentation->product_id)
             ->first();
-        
+
         $this->placeToProductQuantity = $placeProduct->quantity;
     }
 
@@ -90,7 +97,7 @@ class Create extends Component
             ->where('place_id', $this->movimentation->place_to_id)
             ->where('product_id', $this->movimentation->product_id)
             ->get('quantity');
-        
+
         $this->placeToProductQuantity = $placeProduct->quantity;
 
         $placeProduct = DB::table('place_product')

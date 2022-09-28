@@ -2,10 +2,7 @@
 
 namespace App\Http\Livewire\Places;
 
-use App\Models\AccessRole;
 use App\Models\Place;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Create extends Component
