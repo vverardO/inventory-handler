@@ -35,7 +35,7 @@
                 </div>
                 <div class="row text-center mt-4">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary w-md">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary w-md">Realizar Entrada</button>
                         <a href="{{route('entries.index')}}" class="btn btn-danger w-md">Cancelar</a>
                     </div>
                 </div>

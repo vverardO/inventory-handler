@@ -34,7 +34,7 @@ class Dashboard extends Component
                 'products.minimum_amount as warning'
             )->join('products', 'place_product.product_id', '=', 'products.id')
             ->join('places', 'place_product.place_id', '=', 'places.id')
-            ->where('place_product.quantity', '<', 'products.minimum_amount')
+            ->where('place_product.quantity', '<=', 'products.minimum_amount')
             ->orderBy('place_product.quantity')
             ->get();
 
