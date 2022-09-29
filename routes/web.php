@@ -4,9 +4,11 @@ use App\Http\Livewire\Authentication\Login;
 use App\Http\Livewire\Authentication\Register;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Entries\Index as EntriesIndex;
+use App\Http\Livewire\Entries\Create as EntriesCreate;
 use App\Http\Livewire\Movimentations\Create as MovimentationsCreate;
 use App\Http\Livewire\Movimentations\Index as MovimentationsIndex;
 use App\Http\Livewire\Outputs\Index as OutputsIndex;
+use App\Http\Livewire\Outputs\Create as OutputsCreate;
 use App\Http\Livewire\Places\Create as PlacesCreate;
 use App\Http\Livewire\Places\Edit as PlacesEdit;
 use App\Http\Livewire\Places\Index as PlacesIndex;
@@ -43,10 +45,12 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('entries')->group(function () {
         Route::get('/', EntriesIndex::class)->name('entries.index');
+        Route::get('/create', EntriesCreate::class)->name('entries.create');
     });
 
     Route::prefix('outputs')->group(function () {
         Route::get('/', OutputsIndex::class)->name('outputs.index');
+        Route::get('/create', OutputsCreate::class)->name('outputs.create');
     });
 
     Route::prefix('places')->group(function () {

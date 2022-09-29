@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-inline float-md-end mb-3">
-                        <a href="" class="btn btn-success waves-effect waves-light">
+                        <a href="{{route('outputs.create')}}" class="btn btn-success waves-effect waves-light">
                             <i class="mdi mdi-plus me-2"></i> Saída de Produto
                         </a>
                     </div>
@@ -43,9 +43,6 @@
                             <td>{{$output->quantity}}</td>
                             <td>
                                 <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
-                                    </li>
                                     <li class="list-inline-item">
                                         <a href="#" wire:click="destroy('ProductOutput', {{$output->id}})" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
                                     </li>
