@@ -31,7 +31,7 @@ class Create extends Component
 
         $this->product->save();
 
-        session()->flash('message', 'Cadastrado com sucesso!');
+        session()->flash('message', 'Produto cadastrado com sucesso!');
         session()->flash('type', 'success');
 
         return redirect()->route('products.index');

@@ -29,9 +29,9 @@ class Create extends Component
     public string $placeToProductQuantity = '';
 
     protected $rules = [
-        'movimentation.product_id' => 'required',
-        'movimentation.place_from_id' => 'required',
-        'movimentation.place_to_id' => 'required',
+        'movimentation.product_id' => 'required|integer',
+        'movimentation.place_from_id' => 'required|integer',
+        'movimentation.place_to_id' => 'required|integer',
         'movimentation.quantity' => 'required|lte:placeFromProductQuantity',
     ];
 
@@ -39,7 +39,7 @@ class Create extends Component
         'movimentation.product_id.required' => 'Selecione o produto',
         'movimentation.place_from_id.required' => 'Selecione o local de saída',
         'movimentation.place_to_id.required' => 'Selecione o local de entrada',
-        'movimentation.name.required' => 'Insira a quantidade',
+        'movimentation.quantity.required' => 'Insira a quantidade',
         'movimentation.quantity.lte' => 'Quantidade precisa ser menor que a existente no local de saida',
     ];
 
@@ -55,7 +55,7 @@ class Create extends Component
     {
         $this->placesTo = Place::whereNot('id', $this->movimentation->place_from_id)->select(['name', 'id'])->get();
 
-        if (empty($this->movimentation->product_id)) {
+        if (empty($this->movimentation->product_id) || $this->movimentation->place_from_id == 'Selecione') {
             return;
         }
 
@@ -70,7 +70,7 @@ class Create extends Component
 
     public function placeToChanged()
     {
-        if (empty($this->movimentation->product_id)) {
+        if (empty($this->movimentation->product_id) || $this->movimentation->place_to_id == 'Selecione') {
             return;
         }
 
@@ -87,7 +87,9 @@ class Create extends Component
     {
         if (
             empty($this->movimentation->place_to_id) ||
-            empty($this->movimentation->place_from_id)
+            empty($this->movimentation->place_from_id) ||
+            $this->movimentation->place_to_id == 'Selecione' ||
+            $this->movimentation->place_from_id == 'Selecione'
         ) {
             return;
         }
@@ -96,7 +98,7 @@ class Create extends Component
             ->select(['quantity'])
             ->where('place_id', $this->movimentation->place_to_id)
             ->where('product_id', $this->movimentation->product_id)
-            ->get('quantity');
+            ->first();
 
         $this->placeToProductQuantity = $placeProduct->quantity;
 
@@ -104,7 +106,7 @@ class Create extends Component
             ->select(['quantity'])
             ->where('place_id', $this->movimentation->place_from_id)
             ->where('product_id', $this->movimentation->product_id)
-            ->get('quantity');
+            ->first();
 
         $this->placeFromProductQuantity = $placeProduct->quantity;
     }
@@ -116,7 +118,7 @@ class Create extends Component
         $this->movimentation->user_id = auth()->user()->id;
         $this->movimentation->save();
 
-        session()->flash('message', 'Cadastrado com sucesso!');
+        session()->flash('message', 'Movimentação feita com sucesso!');
         session()->flash('type', 'success');
 
         return redirect()->route('movimentations.index');

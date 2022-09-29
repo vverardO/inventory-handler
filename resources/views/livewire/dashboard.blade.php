@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-success alert-label-icon label-arrow" role="alert">
-                            <i class="fas fa-download label-icon"></i><strong>Entradas</strong> - {{$newEntries}}
+                            <i class="fas fa-download label-icon"></i>Entradas: <strong>{{$newEntries}}</strong>
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-danger alert-label-icon label-arrow" role="alert">
-                            <i class="fas fa-upload label-icon"></i><strong>Saídas</strong> - {{$newOutputs}}
+                            <i class="fas fa-upload label-icon"></i>Saídas: <strong>{{$newOutputs}}</strong>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-primary alert-label-icon label-arrow" role="alert">
-                            <i class="fas fa-box-open label-icon"></i><strong>Produtos Novos</strong> - {{$newProducts}}
+                            <i class="fas fa-box-open label-icon"></i>Produtos Novos: <strong>{{$newProducts}}</strong>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-primary alert-label-icon label-arrow" role="alert">
-                            <i class="fas fa-exchange-alt label-icon"></i><strong>Movimentações</strong> - {{$newMovimentations}}
+                            <i class="fas fa-exchange-alt label-icon"></i>Movimentações: <strong>{{$newMovimentations}}</strong>
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@ class Create extends Component
 
         $this->user->save();
 
-        session()->flash('message', 'Cadastrado com sucesso!');
+        session()->flash('message', 'Usuário cadastrado com sucesso!');
         session()->flash('type', 'success');
 
         return redirect()->route('users.index');

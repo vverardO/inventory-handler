@@ -6,7 +6,6 @@ use App\Models\Product;
 use App\Models\ProductEntry;
 use App\Models\ProductMovimentation;
 use App\Models\ProductOutput;
-use App\Observers\ProductEntryObserver;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -45,10 +44,10 @@ class Dashboard extends Component
             ->limit(5)
             ->get();
 
-        $this->newEntries = ProductEntry::where('created_at', Carbon::today())->count();
-        $this->newOutputs = ProductOutput::where('created_at', Carbon::today())->count();
-        $this->newMovimentations = ProductMovimentation::where('created_at', Carbon::today())->count();
-        $this->newProducts = Product::where('created_at', Carbon::today())->count();
+        $this->newEntries = ProductEntry::whereDate('created_at', Carbon::today())->count();
+        $this->newOutputs = ProductOutput::whereDate('created_at', Carbon::today())->count();
+        $this->newMovimentations = ProductMovimentation::whereDate('created_at', Carbon::today())->count();
+        $this->newProducts = Product::whereDate('created_at', Carbon::today())->count();
     }
 
     public function render()

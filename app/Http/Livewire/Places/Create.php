@@ -21,7 +21,7 @@ class Create extends Component
 
         $this->place->save();
 
-        session()->flash('message', 'Cadastrado com sucesso!');
+        session()->flash('message', 'Unidade cadastrada com sucesso!');
         session()->flash('type', 'success');
 
         return redirect()->route('places.index');

@@ -1,5 +1,5 @@
 @section('head.title', 'Usuários | Cadastro')
-@section('page.title', 'Cadastro de um Usuários')
+@section('page.title', 'Cadastrar um Usuário')
 
 <div class="row">
     <div class="card">

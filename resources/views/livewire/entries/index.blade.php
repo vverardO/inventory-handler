@@ -1,5 +1,5 @@
 @section('head.title', 'Entrada de Produto | Listagem')
-@section('page.title', 'Entrada de Produto')
+@section('page.title', 'Entradas de Produtos')
 
 <div class="col-lg-12">
     <div class="card">
