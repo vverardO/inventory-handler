@@ -1,5 +1,5 @@
-@section('head.title', 'Unidades | Cadastro')
-@section('page.title', "Atualização de Usuário {$place->name}")
+@section('head.title', 'Unidades | Atualizar')
+@section('page.title', "Atualização da Unidade {$place->name}")
 
 <div class="row">
     <div class="card">

@@ -11,6 +11,8 @@ use App\Http\Livewire\Places\Create as PlacesCreate;
 use App\Http\Livewire\Places\Edit as PlacesEdit;
 use App\Http\Livewire\Places\Index as PlacesIndex;
 use App\Http\Livewire\Products\Index as ProductsIndex;
+use App\Http\Livewire\Products\Create as ProductsCreate;
+use App\Http\Livewire\Products\Edit as ProductsEdit;
 use App\Http\Livewire\Users\Create as UsersCreate;
 use App\Http\Livewire\Users\Edit as UsersEdit;
 use App\Http\Livewire\Users\Index as UsersIndex;
@@ -30,6 +32,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('products')->group(function () {
         Route::get('/', ProductsIndex::class)->name('products.index');
+        Route::get('/create', ProductsCreate::class)->name('products.create');
+        Route::get('/edit/{id}', ProductsEdit::class)->name('products.edit');
     });
 
     Route::prefix('movimentations')->group(function () {
