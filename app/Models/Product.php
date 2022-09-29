@@ -16,7 +16,7 @@ class Product extends Model
         'value',
         'minimum_amount',
     ];
-   
+
     protected $casts = [
         'created_at' => 'datetime:Y-m-d',
     ];

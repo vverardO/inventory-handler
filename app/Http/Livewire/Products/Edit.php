@@ -8,6 +8,7 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $value;
+
     public Product $product;
 
     protected $rules = [
@@ -27,7 +28,7 @@ class Edit extends Component
     {
         $this->validate();
 
-        if (str_contains($this->value, ",")) {
+        if (str_contains($this->value, ',')) {
             $this->product->value = str_replace(',', '.', str_replace('.', '', $this->value));
         } else {
             $this->product->value = $this->value;

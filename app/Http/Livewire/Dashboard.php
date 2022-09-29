@@ -13,10 +13,15 @@ use Livewire\Component;
 class Dashboard extends Component
 {
     public $warningProducts;
+
     public $largestMovimentations;
+
     public $newEntries;
+
     public $newOutputs;
+
     public $newMovimentations;
+
     public $newProducts;
 
     public function mount()

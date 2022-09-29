@@ -10,7 +10,9 @@ use Livewire\Component;
 class Create extends Component
 {
     public ProductEntry $productEntry;
+
     public $products;
+
     public $places;
 
     protected $rules = [
