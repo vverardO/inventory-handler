@@ -17,6 +17,7 @@ php artisan serve
 
 ## Leia
 Abaixo algumas imagens referentes a aplicação, as interfaces estão bem intuitivas e creio que estão auto explicativas.
+Caso queira visualizar antes de subir a aplicação local ou não possa subir, veja [este vídeo](https://www.youtube.com/watch?v=LZvS3o3_3Ik&ab_channel=ValentimVerardo) no youtube.
 
 ## Acesso
 ![Login](https://i.postimg.cc/mZy9s6Tp/login.png)
